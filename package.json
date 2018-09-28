@@ -1,0 +1,35 @@
+{
+  "name": "serve-placeholder",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "description": "Connect/Express middleware to responsd with appreciate placeholders based on request instead of 404",
+  "repository": "git@github.com:nuxt/serve-placeholder.git",
+  "contributes": [
+    "Pooya Parsa <pooya@psi0.ir>"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "test": "npm run lint && npm run jest",
+    "jest": "jest",
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "prepare": "npm run test"
+  },
+  "dependencies": {
+    "lodash.defaultsdeep": "^4.6.0"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "codecov": "^3.1.0",
+    "connect": "^3.6.6",
+    "eslint": "^5.6.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "standard-version": "^4.4.0"
+  }
+}

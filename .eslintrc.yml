@@ -1,4 +1,1 @@
-plugins:
- - jest
-env:
- jest/globals: true
+extends: standard
