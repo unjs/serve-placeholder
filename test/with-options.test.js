@@ -18,8 +18,8 @@ describe('skipUnknown', () => {
 
     app.use('/', (req, res) => { res.end('Unknown!') })
 
-    server = app.listen(8080)
-    axios = Axios.create({ baseURL: 'http://localhost:8080' })
+    server = app.listen(8081)
+    axios = Axios.create({ baseURL: 'http://localhost:8081' })
   })
 
   it('/test', async () => {
