@@ -1,6 +1,6 @@
 {
   "name": "serve-placeholder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/index.js",
   "license": "MIT",
   "description": "Connect/Express middleware to respond with better placeholders based on request instead of 404 page",
