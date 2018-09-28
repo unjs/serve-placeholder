@@ -68,6 +68,19 @@ app.use(placeholder())
 // [global error handler]
 ```
 
+
+## Default Handlers
+
+Theese are default handles. See [options](#options) section to see how to customize or disable them.
+
+Handler  | Extensions                                        | Mime type                |  Placeholder
+---------|---------------------------------------------------|--------------------------|-------------------
+js       | `js`                                              | `application/javascript` | `/* script not found */`
+json     | `json`                                            | `application/json`       | `{}`
+html     | `html`, `htm`                                     | `text/html`              | `<!-- page not found -->`
+css      | `css`                                             | `text/css`               | `/* style not found */`
+image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`              | transparent 1x1  image
+
 ## Options
 
 ### `handler`
@@ -99,16 +112,6 @@ A mapping from handler to placeholder. Values can be `String` or `Buffer`. You c
 - Type: `Object`
 
 A mapping from handler to the mime type. Mime type will be set as `Content-Type` header. You can disable sending any of the mimes by setting the value to `false`.
-
-## Supported Handlers
-
-Handler  | Extensions                                        | Default Mime type                | Default Placeholder
----------|---------------------------------------------------|----------------------------------|-------------------
-js       | `js`                                              | `application/javascript`         | `/* script not found */`
-json     | `json`                                            | `application/json`               | `{}`
-html     | `html`, `htm`                                     | `text/html`                      | `<!-- page not found -->`
-css      | `css`                                             | `text/css`                       | `/* style not found */`
-image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`                      | 1x1 transparent image
 
 ## License
 
