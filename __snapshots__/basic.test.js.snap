@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic css 1`] = `"/* style not found */"`;
+
+exports[`basic html 1`] = `"<!-- page not found -->"`;
+
+exports[`basic js 1`] = `"/* script not found */"`;
+
+exports[`basic json 1`] = `Object {}`;
+
+exports[`basic png 1`] = `"R0lGODlhAQABAO+/vQEA77+977+977+9AAAAIe+/vQQBCgABACwAAAAAAQABAAACAkwBADs="`;
