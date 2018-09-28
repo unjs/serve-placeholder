@@ -2,9 +2,6 @@
 
 > Connect/Express middleware to respond with better placeholders based on request instead of 404 page
 
-[![npm](https://img.shields.io/npm/dt/serve-placeholder.svg?style=flat-square)](https://npmjs.com/package/serve-placeholder)
-[![npm (scoped with tag)](https://img.shields.io/npm/v/serve-placeholder/latest.svg?style=flat-square)](https://npmjs.com/package/serve-placeholder)
-
 <p align="center">
 <a href="https://david-dm.org/nuxt/serve-placeholder">
     <img alt="" src="https://david-dm.org/nuxt/serve-placeholder/status.svg?style=flat-square">
