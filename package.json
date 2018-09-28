@@ -15,6 +15,9 @@
     "release": "standard-version && git push --follow-tags && npm publish",
     "prepare": "npm run test"
   },
+  "files": [
+    "src"
+  ],
   "dependencies": {
     "lodash.defaultsdeep": "^4.6.0"
   },
