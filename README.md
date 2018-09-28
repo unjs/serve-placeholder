@@ -1,6 +1,6 @@
 # serve-placeholder
 
-> Connect/Express middleware to responsd with appreciate placeholders based on request instead of 404
+> Connect/Express middleware to respond with appreciate placeholders based on request instead of 404
 
 [![npm](https://img.shields.io/npm/dt/serve-placeholder.svg?style=flat-square)](https://npmjs.com/package/serve-placeholder)
 [![npm (scoped with tag)](https://img.shields.io/npm/v/serve-placeholder/latest.svg?style=flat-square)](https://npmjs.com/package/serve-placeholder)

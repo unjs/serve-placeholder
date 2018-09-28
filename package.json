@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "src/index.js",
   "license": "MIT",
-  "description": "Connect/Express middleware to responsd with appreciate placeholders based on request instead of 404",
+  "description": "Connect/Express middleware to respond with appreciate placeholders based on request instead of 404",
   "repository": "git@github.com:nuxt/serve-placeholder.git",
   "contributes": [
     "Pooya Parsa <pooya@pi0.ir>"
