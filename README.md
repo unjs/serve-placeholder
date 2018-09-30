@@ -75,11 +75,12 @@ Theese are default handles. See [options](#options) section to see how to custom
 
 Handler  | Extensions                                        | Mime type                |  Placeholder
 ---------|---------------------------------------------------|--------------------------|-------------------
+css      | `css`                                             | `text/css`               | `/* style not found */`
+html     | `html`, `htm`                                     | `text/html`              | `<!-- page not found -->`
+image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`              | transparent 1x1  image
 js       | `js`                                              | `application/javascript` | `/* script not found */`
 json     | `json`                                            | `application/json`       | `{}`
-html     | `html`, `htm`                                     | `text/html`              | `<!-- page not found -->`
-css      | `css`                                             | `text/css`               | `/* style not found */`
-image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`              | transparent 1x1  image
+map      | `map`                                             | `application/json`       | `{"version": "3", "sources": [], "mappings": "" }`
 
 ## Options
 

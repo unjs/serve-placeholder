@@ -1,36 +1,47 @@
+const EMPTY_GIF = Buffer.from('R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'base64')
+
 module.exports = {
   statusCode: 404,
 
   skipUnknown: false,
 
   handler: {
-    '.js': 'js',
-    '.json': 'json',
+    // css
     '.css': 'css',
+    // html
     '.html': 'html',
     '.htm': 'html',
+    // image
     '.png': 'image',
     '.jpg': 'image',
     '.jpeg': 'image',
     '.gif': 'image',
     '.svg': 'image',
     '.webp': 'image',
-    '.bmp': 'image'
+    '.bmp': 'image',
+    // js
+    '.js': 'js',
+    // json
+    '.json': 'json',
+    // map
+    '.map': 'map'
   },
 
   placeholder: {
+    css: '/* style not found */',
+    html: '<!-- page not found -->',
+    image: EMPTY_GIF,
     js: '/* script not found */',
     json: '{}',
-    html: '<!-- page not found -->',
-    css: '/* style not found */',
-    image: Buffer.from('R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'base64')
+    map: '{"version": "3", "sources": [], "mappings": "" }'
   },
 
   mime: {
+    css: 'text/css',
+    html: 'text/html',
     js: 'application/javascript',
     json: 'application/json',
-    html: 'text/html',
-    css: 'text/css',
-    image: 'image/gif'
+    image: 'image/gif',
+    map: 'application/json'
   }
 }
