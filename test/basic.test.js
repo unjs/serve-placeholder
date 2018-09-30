@@ -23,8 +23,11 @@ describe('basic', () => {
     expect(response.data).toBe('Works!')
   })
 
-  // Test formats
-  Object.entries(defaults.handler).map(([ext, handler]) => {
+  const handlersToTest = Object.entries(defaults.handler).map(([ext, handler]) => ({ ext, handler }))
+  handlersToTest.push({ ext: '.unknown', handler: 'default ' })
+
+  // Test all handlers
+  handlersToTest.map(({ ext, handler }) => {
     it('Handler for ' + ext, async () => {
       const response = await axios.get(`/assets/foo${ext}`, {
         transformResponse: req => req
@@ -35,7 +38,7 @@ describe('basic', () => {
       if (placeholder instanceof Buffer) {
         expect(response.data.data).toBe(defaults.placeholder[handler].data)
       } else {
-        expect(response.data).toBe(defaults.placeholder[handler])
+        expect(response.data).toBe(defaults.placeholder[handler] || '')
       }
     })
   })

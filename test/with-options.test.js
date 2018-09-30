@@ -13,7 +13,10 @@ describe('skipUnknown', () => {
     app.use('/test', (req, res) => { res.end('Works!') })
 
     app.use(placeholder({
-      skipUnknown: true
+      skipUnknown: true,
+      handler: {
+        '.skipme': false
+      }
     }))
 
     app.use('/', (req, res) => { res.end('Unknown!') })
@@ -25,6 +28,11 @@ describe('skipUnknown', () => {
   it('/test', async () => {
     const response = await axios.get('/test')
     expect(response.data).toBe('Works!')
+  })
+
+  it('.skipme', async () => {
+    const response = await axios.get('/assets/foo.skipme').catch(e => e.response)
+    expect(response.data).toBe('Unknown!')
   })
 
   it('unknown', async () => {

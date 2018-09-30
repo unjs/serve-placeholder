@@ -69,15 +69,16 @@ app.use(placeholder())
 ```
 
 
-## Default Handlers
+## Handlers
 
 Theese are default handles. See [options](#options) section to see how to customize or disable them.
 
 Handler  | Extensions                                        | Mime type                |  Placeholder
 ---------|---------------------------------------------------|--------------------------|-------------------
+default  | any unknown extension                             | -                        | -
 css      | `css`                                             | `text/css`               | `/* style not found */`
 html     | `html`, `htm`                                     | `text/html`              | `<!-- page not found -->`
-image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`              | transparent 1x1  image
+image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`              | transparent 1x1 image
 js       | `js`                                              | `application/javascript` | `/* script not found */`
 json     | `json`                                            | `application/json`       | `{}`
 map      | `map`                                             | `application/json`       | `{"version": "3", "sources": [], "mappings": "" }`
@@ -86,9 +87,11 @@ map      | `map`                                             | `application/json
 
 ### `handler`
 
-A mapping from file extensions to the handler. Extensions should start with `.` like `.js`.
+A mapping from file extensions to the handler. Extensions should start with *dot* like `.js`.
 
-You can disable any of the default handlers by setting the value to `false`
+You can disable any of the handlers by setting the value to `null`
+
+If value of a handler is set to `false`, middleware will be ignored for that extension.
 
 ### `statusCode`
 
@@ -100,7 +103,9 @@ Sets `statusCode` for all handled responses. Set to `false` to disable overridin
 
 - Default: `false`
 
-Skip middleware when no handler is defined for the current request and call `next()` instead.
+Skip middleware when no handler is defined for the current request.
+
+Please note that if this option is set to `true`, then `default` handler will be disabled!
 
 ### `placeholder`
 

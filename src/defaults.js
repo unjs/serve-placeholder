@@ -29,6 +29,7 @@ module.exports = {
 
   placeholder: {
     css: '/* style not found */',
+    default: undefined,
     html: '<!-- page not found -->',
     image: EMPTY_GIF,
     js: '/* script not found */',
@@ -38,6 +39,7 @@ module.exports = {
 
   mime: {
     css: 'text/css',
+    default: undefined,
     html: 'text/html',
     js: 'application/javascript',
     json: 'application/json',

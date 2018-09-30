@@ -15,11 +15,22 @@ module.exports = function createServePlaceholder (_options) {
     const ext = path.extname(url)
 
     // Try to find a handler based on ext
-    const handler = options.handler[ext]
+    let handler = options.handler[ext]
 
-    // Skip this middleware if no appreciate handler was found
-    if (!handler && options.skipUnknown) {
+    // Skip middleware is handler is explictly set to false
+    if (handler === false) {
       return next()
+    }
+
+    // In case of no handler guessed
+    if (handler === undefined) {
+      if (options.skipUnknown) {
+        // Skip this middleware
+        return next()
+      } else {
+        // Use 'default' handler
+        handler = 'default'
+      }
     }
 
     // Set statusCode
