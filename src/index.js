@@ -23,7 +23,7 @@ module.exports = function createServePlaceholder (_options) {
     }
 
     // In case of no handler guessed
-    if (handler === undefined) {
+    if (typeof handler === 'undefined') {
       if (options.skipUnknown) {
         // Skip this middleware
         return next()
