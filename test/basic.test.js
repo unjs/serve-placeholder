@@ -1,6 +1,7 @@
 const connect = require('connect')
 const Axios = require('axios')
 const placeholder = require('..')
+const defaults = require('../src/defaults')
 
 describe('basic', () => {
   let app
@@ -22,29 +23,21 @@ describe('basic', () => {
     expect(response.data).toBe('Works!')
   })
 
-  it('js', async () => {
-    const response = await axios.get('/assets/foo.js').catch(e => e.response)
-    expect(response.data).toMatchSnapshot()
-  })
+  // Test formats
+  Object.entries(defaults.handler).map(([ext, handler]) => {
+    it('Handler for ' + ext, async () => {
+      const response = await axios.get(`/assets/foo${ext}`, {
+        transformResponse: req => req
+      }).catch(e => e.response)
 
-  it('json', async () => {
-    const response = await axios.get('/assets/foo.json').catch(e => e.response)
-    expect(response.data).toMatchSnapshot()
-  })
+      const placeholder = defaults.placeholder[handler]
 
-  it('html', async () => {
-    const response = await axios.get('/assets/foo.html').catch(e => e.response)
-    expect(response.data).toMatchSnapshot()
-  })
-
-  it('css', async () => {
-    const response = await axios.get('/assets/foo.css').catch(e => e.response)
-    expect(response.data).toMatchSnapshot()
-  })
-
-  it('png', async () => {
-    const response = await axios.get('/assets/foo.png').catch(e => e.response)
-    expect(Buffer.from(response.data).toString('base64')).toMatchSnapshot()
+      if (placeholder instanceof Buffer) {
+        expect(response.data.data).toBe(defaults.placeholder[handler].data)
+      } else {
+        expect(response.data).toBe(defaults.placeholder[handler])
+      }
+    })
   })
 
   it('close', () => {
