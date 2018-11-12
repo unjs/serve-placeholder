@@ -50,8 +50,6 @@ const placeholder = require('serve-placeholder')
 
 // Response with appreciate placeholders
 app.use(placeholder())
-
-// OR with options...
 //app.use(placeholder({ /* options */ }))
 
 // [global error handler]
@@ -96,7 +94,7 @@ A mapping from handler to the mime type. Mime type will be set as `Content-Type`
 
 ## Defaults
 
-These are [default handlers](./src/defaults.js):
+These are [default handlers](./src/defaults.js). You can override every of them using provided options.
 
 Handler    | Extensions             | Mime type                |  Placeholder
 -----------|------------------------|--------------------------|-------------------
@@ -107,7 +105,7 @@ Handler    | Extensions             | Mime type                |  Placeholder
 `json`     | `.json`                | `application/json`       | `{}`
 `map`      | `.map`                 | `application/json`       | [empty sourcemap v3 json]
 `plain`    | `.txt`, `.text`, `.md` | `text/plain`             | [empty]
-`image`    | `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`, `.webp`, `.bmp`, `.ico` | `.image/gif` | [transparent 1x1 image]
+`image`    | `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`, `.webp`, `.bmp`, `.ico` | `image/gif` | [transparent 1x1 image]
 
 ## License
 
