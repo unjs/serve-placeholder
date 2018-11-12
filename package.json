@@ -19,7 +19,7 @@
     "src"
   ],
   "dependencies": {
-    "lodash.defaultsdeep": "^4.6.0"
+    "defaults-deep": "^0.2.4"
   },
   "devDependencies": {
     "axios": "^0.18.0",

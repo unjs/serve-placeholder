@@ -1,5 +1,5 @@
 const path = require('path')
-const defaultsDeep = require('lodash.defaultsdeep')
+const defaultsDeep = require('defaults-deep')
 
 const defaults = require('./defaults')
 
