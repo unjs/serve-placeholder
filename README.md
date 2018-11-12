@@ -62,13 +62,13 @@ These are default handles. See [options](#options) section to see how to customi
 
 Handler  | Extensions                                        | Mime type                |  Placeholder
 ---------|---------------------------------------------------|--------------------------|-------------------
-default  | any unknown extension                             | -                        | -
-css      | `css`                                             | `text/css`               | `/* style not found */`
-html     | `html`, `htm`                                     | `text/html`              | `<!-- page not found -->`
-image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp` | `image/gif`              | transparent 1x1 image
-js       | `js`                                              | `application/javascript` | `/* script not found */`
-json     | `json`                                            | `application/json`       | `{}`
-map      | `map`                                             | `application/json`       | `{"version": "3", "sources": [], "mappings": "" }`
+default  | any unknown extension  | -                        | -
+css      | `css`                  | `text/css`               | `/* style not found */`
+html     | `html`, `htm`          | `text/html`              | `<!-- page not found -->`
+js       | `js`                   | `application/javascript` | `/* script not found */`
+json     | `json`                 | `application/json`       | `{}`
+map      | `map`                  | `application/json`       | `{"version": "3", "sources": [], "mappings": "" }`
+image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp`, `ico` | `image/gif` | transparent 1x1 image
 
 ## Options
 

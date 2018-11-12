@@ -19,6 +19,7 @@ module.exports = {
     '.svg': 'image',
     '.webp': 'image',
     '.bmp': 'image',
+    '.ico': 'image',
     // js
     '.js': 'js',
     // json
