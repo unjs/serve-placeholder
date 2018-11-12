@@ -5,7 +5,7 @@ module.exports = {
 
   skipUnknown: false,
 
-  handler: {
+  handlers: {
     // css
     '.css': 'css',
     // html
@@ -27,7 +27,7 @@ module.exports = {
     '.map': 'map'
   },
 
-  placeholder: {
+  placeholders: {
     css: '/* style not found */',
     default: undefined,
     html: '<!-- page not found -->',
@@ -37,7 +37,7 @@ module.exports = {
     map: '{"version": "3", "sources": [], "mappings": "" }'
   },
 
-  mime: {
+  mimes: {
     css: 'text/css',
     default: undefined,
     html: 'text/html',

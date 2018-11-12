@@ -23,7 +23,7 @@ describe('basic', () => {
     expect(response.data).toBe('Works!')
   })
 
-  const handlersToTest = Object.entries(defaults.handler).map(([ext, handler]) => ({ ext, handler }))
+  const handlersToTest = Object.entries(defaults.handlers).map(([ext, handler]) => ({ ext, handler }))
   handlersToTest.push({ ext: '.unknown', handler: 'default ' })
 
   // Test all handlers
@@ -33,12 +33,12 @@ describe('basic', () => {
         transformResponse: req => req
       }).catch(e => e.response)
 
-      const placeholder = defaults.placeholder[handler]
+      const placeholder = defaults.placeholders[handler]
 
       if (placeholder instanceof Buffer) {
-        expect(response.data.data).toBe(defaults.placeholder[handler].data)
+        expect(response.data.data).toBe(defaults.placeholders[handler].data)
       } else {
-        expect(response.data).toBe(defaults.placeholder[handler] || '')
+        expect(response.data).toBe(defaults.placeholders[handler] || '')
       }
     })
   })

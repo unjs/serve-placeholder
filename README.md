@@ -72,7 +72,7 @@ map      | `map`                                             | `application/json
 
 ## Options
 
-### `handler`
+### `handlers`
 
 A mapping from file extensions to the handler. Extensions should start with *dot* like `.js`.
 
@@ -94,13 +94,13 @@ Skip middleware when no handler is defined for the current request.
 
 Please note that if this option is set to `true`, then `default` handler will be disabled!
 
-### `placeholder`
+### `placeholders`
 
 - Type: `Object`
 
 A mapping from handler to placeholder. Values can be `String` or `Buffer`. You can disable any of the placeholders by setting the value to `false`.
 
-### `mime`
+### `mimes`
 
 - Type: `Object`
 

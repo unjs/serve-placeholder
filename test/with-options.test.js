@@ -14,7 +14,7 @@ describe('skipUnknown', () => {
 
     app.use(placeholder({
       skipUnknown: true,
-      handler: {
+      handlers: {
         '.skipme': false
       }
     }))

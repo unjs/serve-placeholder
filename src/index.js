@@ -15,7 +15,7 @@ module.exports = function createServePlaceholder (_options) {
     const ext = path.extname(url)
 
     // Try to find a handler based on ext
-    let handler = options.handler[ext]
+    let handler = options.handlers[ext]
 
     // Skip middleware is handler is explictly set to false
     if (handler === false) {
@@ -39,13 +39,13 @@ module.exports = function createServePlaceholder (_options) {
     }
 
     // Try to set appreciate mime type based on handler
-    const mime = options.mime[handler]
+    const mime = options.mimes[handler]
     if (mime) {
       res.setHeader('Content-Type', mime)
     }
 
     // Try to find placeholder based on handler
-    const placeholder = options.placeholder[handler]
+    const placeholder = options.placeholders[handler]
 
     // Send placeholder and end response
     res.end(placeholder)
