@@ -25,7 +25,11 @@ module.exports = {
     // json
     '.json': 'json',
     // map
-    '.map': 'map'
+    '.map': 'map',
+    // plain
+    '.txt': 'plain',
+    '.text': 'plain',
+    '.md': 'plain'
   },
 
   placeholders: {
@@ -35,7 +39,8 @@ module.exports = {
     image: EMPTY_GIF,
     js: '/* script not found */',
     json: '{}',
-    map: '{"version": "3", "sources": [], "mappings": "" }'
+    map: '{"version": "3", "sources": [], "mappings": "" }',
+    plain: ''
   },
 
   mimes: {

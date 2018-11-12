@@ -60,14 +60,15 @@ app.use(placeholder())
 
 These are default handles. See [options](#options) section to see how to customize or disable them.
 
-Handler  | Extensions                                        | Mime type                |  Placeholder
----------|---------------------------------------------------|--------------------------|-------------------
+Handler  | Extensions             | Mime type                |  Placeholder
+---------|------------------------|--------------------------|-------------------
 default  | any unknown extension  | -                        | -
 css      | `css`                  | `text/css`               | `/* style not found */`
 html     | `html`, `htm`          | `text/html`              | `<!-- page not found -->`
 js       | `js`                   | `application/javascript` | `/* script not found */`
 json     | `json`                 | `application/json`       | `{}`
 map      | `map`                  | `application/json`       | `{"version": "3", "sources": [], "mappings": "" }`
+plain    | `txt`, `text`, `md`    | `text/plain`             |  ``
 image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp`, `ico` | `image/gif` | transparent 1x1 image
 
 ## Options
