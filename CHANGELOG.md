@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/nuxt/serve-placeholder/compare/v1.0.0...v1.1.0) (2018-11-12)
+
+
+### Features
+
+* plain handler ([029a02e](https://github.com/nuxt/serve-placeholder/commit/029a02e))
+* support ico ([834131b](https://github.com/nuxt/serve-placeholder/commit/834131b))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/nuxt/serve-placeholder/compare/v0.1.1...v1.0.0) (2018-11-12)
 
