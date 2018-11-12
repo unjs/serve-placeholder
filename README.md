@@ -109,9 +109,7 @@ Handler    | Extensions             | Mime type                |  Placeholder
 
 ## License
 
-MIT
-
-Made with 💖  by [Nuxt.js](https://nuxtjs.org) team with!
+MIT. Made with 💖  by [Nuxt.js](https://nuxtjs.org) team!
 
 <!-- Refs -->
 [standard-src]: https://flat.badgen.net/badge/code%20style/standard/green
