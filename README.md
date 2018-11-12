@@ -2,27 +2,14 @@
 
 > Connect/Express middleware to respond with better placeholders based on request instead of 404 page
 
-<p align="center">
-<a href="https://david-dm.org/nuxt/serve-placeholder">
-    <img alt="" src="https://david-dm.org/nuxt/serve-placeholder/status.svg?style=flat-square">
-</a>
-<a href="https://standardjs.com">
-    <img alt="" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square">
-</a>
-<a href="https://circleci.com/gh/nuxt/serve-placeholder">
-    <img alt="" src="https://img.shields.io/circleci/project/github/nuxt/serve-placeholder.svg?style=flat-square">
-</a>
-<a href="https://codecov.io/gh/nuxt/serve-placeholder">
-    <img alt="" src="https://img.shields.io/codecov/c/github/nuxt/serve-placeholder.svg?style=flat-square">
-</a>
-<br>
-<a href="https://npmjs.com/package/serve-placeholder">
-    <img alt="" src="https://img.shields.io/npm/v/serve-placeholder/latest.svg?style=flat-square">
-</a>
-<a href="https://npmjs.com/package/serve-placeholder">
-    <img alt="" src="https://img.shields.io/npm/dt/serve-placeholder.svg?style=flat-square">
-</a>
-</p>
+[![Standard JS][standard-src]][standard-href]
+[![david dm][david-src]][david-href]
+[![codecov][codecov-src]][codecov-href]
+[![circleci][circleci-src]][circleci-href]
+
+[![npm version][npm-v-src]][npm-v-href]
+[![npm downloads][npm-dt-src]][npm-dt-href]
+[![package phobia][packagephobia-src]][packagephobia-href]
 
 ## Why?
 
@@ -71,7 +58,7 @@ app.use(placeholder())
 
 ## Handlers
 
-Theese are default handles. See [options](#options) section to see how to customize or disable them.
+These are default handles. See [options](#options) section to see how to customize or disable them.
 
 Handler  | Extensions                                        | Mime type                |  Placeholder
 ---------|---------------------------------------------------|--------------------------|-------------------
@@ -91,7 +78,7 @@ A mapping from file extensions to the handler. Extensions should start with *dot
 
 You can disable any of the handlers by setting the value to `null`
 
-If value of a handler is set to `false`, middleware will be ignored for that extension.
+If the value of a handler is set to `false`, middleware will be ignored for that extension.
 
 ### `statusCode`
 
@@ -121,4 +108,28 @@ A mapping from handler to the mime type. Mime type will be set as `Content-Type`
 
 ## License
 
-MIT. Made by [Nuxt.js](https://nuxtjs.org) team with ❤️
+MIT
+
+Made with 💖  by [Nuxt.js](https://nuxtjs.org) team with!
+
+<!-- Refs -->
+[standard-src]: https://flat.badgen.net/badge/code%20style/standard/green
+[standard-href]: https://standardjs.com
+
+[npm-v-src]: https://flat.badgen.net/npm/v/serve-placeholder/latest
+[npm-v-href]: https://npmjs.com/package/serve-placeholder
+
+[npm-dt-src]: https://flat.badgen.net/npm/dt/serve-placeholder
+[npm-dt-href]: https://npmjs.com/package/serve-placeholder
+
+[packagephobia-src]: https://flat.badgen.net/packagephobia/install/serve-placeholder
+[packagephobia-href]: https://packagephobia.now.sh/result?p=serve-placeholder
+
+[david-src]: https://flat.badgen.net/david/dep/nuxt/serve-placeholder
+[david-href]: https://david-dm.org/nuxt/serve-placeholder
+
+[codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/serve-placeholder/master
+[codecov-href]: https://codecov.io/gh/nuxt/serve-placeholder
+
+[circleci-src]: https://flat.badgen.net/circleci/github/nuxt/serve-placeholder/master
+[circleci-href]: https://circleci.com/gh/nuxt/serve-placeholder
