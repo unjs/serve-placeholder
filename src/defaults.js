@@ -50,6 +50,7 @@ module.exports = {
     js: 'application/javascript',
     json: 'application/json',
     image: 'image/gif',
-    map: 'application/json'
+    map: 'application/json',
+    plain: 'text/plain'
   }
 }
