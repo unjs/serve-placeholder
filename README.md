@@ -13,17 +13,18 @@
 
 ## Why?
 
-**💵 Rendering 404 errors is sometimes costly**
+**💵 Rendering 404 errors is costly**
 
-Especially when you are doing SSR, each 404 error means a new SSR request and it may crash the server or add extra load.
-
-**👣 Hard to Debug and Trace**
-
-When you look at debugger tools for 404 assets, you may probably see an ugly HTML page.
+- Each 404 error for assets means a new SSR request that adds extra loads to the server and increases crash chances.
 
 **👌 Graceful Responses**
 
-When an asset is not found from the server, we can send better response instead of nothing. For example, for images, we send a transparent 1x1 image.
+- Sometimes, we can send better responses alongside with 404 code instead of nothing. For example, for images, we send a fallback transparent 1x1 image.
+
+**🔍 SEO Friendly**
+
+- Don't allow indexing invalid URLs with ugly html pages.
+- Remove extra SSR loads when assets like `robots.txt` or `favicon.ico` doesn't exist.
 
 ## Usage
 
@@ -39,10 +40,11 @@ OR
 yarn add serve-placeholder
 ```
 
-Require and use middleware:
+Import and use middleware:
 
 ```js
 const placeholder = require('serve-placeholder')
+// import placeholder from 'serve-placeholder'
 
 // [regular middleware such as serve-static]
 
@@ -54,22 +56,6 @@ app.use(placeholder())
 
 // [global error handler]
 ```
-
-
-## Handlers
-
-These are default handles. See [options](#options) section to see how to customize or disable them.
-
-Handler  | Extensions             | Mime type                |  Placeholder
----------|------------------------|--------------------------|-------------------
-default  | any unknown extension  | -                        | -
-css      | `css`                  | `text/css`               | `/* style not found */`
-html     | `html`, `htm`          | `text/html`              | `<!-- page not found -->`
-js       | `js`                   | `application/javascript` | `/* script not found */`
-json     | `json`                 | `application/json`       | `{}`
-map      | `map`                  | `application/json`       | `{"version": "3", "sources": [], "mappings": "" }`
-plain    | `txt`, `text`, `md`    | `text/plain`             |  ``
-image    | `png`, `jpg`, `jpeg`, `gif`, `svg`, `webp`, `bmp`, `ico` | `image/gif` | transparent 1x1 image
 
 ## Options
 
@@ -106,6 +92,22 @@ A mapping from handler to placeholder. Values can be `String` or `Buffer`. You c
 - Type: `Object`
 
 A mapping from handler to the mime type. Mime type will be set as `Content-Type` header. You can disable sending any of the mimes by setting the value to `false`.
+
+
+## Defaults
+
+These are [default handlers](./src/defaults.js):
+
+Handler    | Extensions             | Mime type                |  Placeholder
+-----------|------------------------|--------------------------|-------------------
+`default`  | any unknown extension  | -                        | -
+`css`      | `.css`                 | `text/css`               | `/* style not found */`
+`html`     | `.html`, `.htm`        | `text/html`              | `<!-- page not found -->`
+`js`       | `.js`                  | `application/javascript` | `/* script not found */`
+`json`     | `.json`                | `application/json`       | `{}`
+`map`      | `.map`                 | `application/json`       | [empty sourcemap v3 json]
+`plain`    | `.txt`, `.text`, `.md` | `text/plain`             | [empty]
+`image`    | `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`, `.webp`, `.bmp`, `.ico` | `.image/gif` | [transparent 1x1 image]
 
 ## License
 
