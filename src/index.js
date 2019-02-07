@@ -1,11 +1,11 @@
 const path = require('path')
-const defaultsDeep = require('defaults-deep')
+const defu = require('defu')
 
 const defaults = require('./defaults')
 
 module.exports = function createServePlaceholder (_options) {
   // Assign default options
-  const options = defaultsDeep({}, _options, defaults)
+  const options = defu(_options, defaults)
 
   return function servePlaceholderMiddleware (req, res, next) {
     // Get url from req object

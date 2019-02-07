@@ -19,7 +19,7 @@
     "src"
   ],
   "dependencies": {
-    "defaults-deep": "^0.2.4"
+    "defu": "^0.0.1"
   },
   "devDependencies": {
     "axios": "^0.18.0",
