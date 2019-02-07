@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/nuxt/serve-placeholder/compare/v1.1.0...v1.1.1) (2019-02-07)
+
+
+### Bug Fixes
+
+* use defu instead of defaults-deep ([3dc0535](https://github.com/nuxt/serve-placeholder/commit/3dc0535)), closes [#7](https://github.com/nuxt/serve-placeholder/issues/7) [nuxt/nuxt.js#4971](https://github.com/nuxt/nuxt.js/issues/4971)
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/nuxt/serve-placeholder/compare/v1.0.0...v1.1.0) (2018-11-12)
 
