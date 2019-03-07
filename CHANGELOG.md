@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+# [1.2.0](https://github.com/nuxt/serve-placeholder/compare/v1.1.1...v1.2.0) (2019-03-07)
+
+
+### Features
+
+* set headers to prevent caching.  fixes [#12](https://github.com/nuxt/serve-placeholder/issues/12) ([6272c87](https://github.com/nuxt/serve-placeholder/commit/6272c87))
+
+
+
 <a name="1.1.1"></a>
 ## [1.1.1](https://github.com/nuxt/serve-placeholder/compare/v1.1.0...v1.1.1) (2019-02-07)
 
