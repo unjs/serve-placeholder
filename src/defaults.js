@@ -5,6 +5,8 @@ module.exports = {
 
   skipUnknown: false,
 
+  noCache: true,
+
   handlers: {
     // css
     '.css': 'css',

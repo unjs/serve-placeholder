@@ -91,6 +91,21 @@ A mapping from handler to placeholder. Values can be `String` or `Buffer`. You c
 
 A mapping from handler to the mime type. Mime type will be set as `Content-Type` header. You can disable sending any of the mimes by setting the value to `false`.
 
+# `noCache`
+
+- Default: `true`
+
+Set headers to prevent accidentally caching 404 resources.
+
+When enabled, these headers will be sent:
+
+```js
+{
+  'cache-control': 'no-cache, no-store, must-revalidate',
+  'expires': '0',
+  'pragma': 'no-cache'
+}
+```
 
 ## Defaults
 

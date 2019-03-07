@@ -14,6 +14,7 @@ describe('skipUnknown', () => {
 
     app.use(placeholder({
       skipUnknown: true,
+      noCache: false,
       handlers: {
         '.skipme': false
       }
@@ -28,6 +29,18 @@ describe('skipUnknown', () => {
   it('/test', async () => {
     const response = await axios.get('/test')
     expect(response.data).toBe('Works!')
+  })
+
+  it('Headers', async () => {
+    const response = await axios.get('/404.json').catch(e => e.response)
+    expect(response.headers).toMatchObject({
+      'connection': 'close',
+      'content-length': '2',
+      'content-type': 'application/json'
+    })
+    for (const header of ['cache-control', 'expires', 'pragma']) {
+      expect(response.headers[header]).toBeUndefined()
+    }
   })
 
   it('.skipme', async () => {

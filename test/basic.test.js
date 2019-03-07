@@ -23,6 +23,18 @@ describe('basic', () => {
     expect(response.data).toBe('Works!')
   })
 
+  it('Headers', async () => {
+    const response = await axios.get('/404.json').catch(e => e.response)
+    expect(response.headers).toMatchObject({
+      'cache-control': 'no-cache, no-store, must-revalidate',
+      'connection': 'close',
+      'content-length': '2',
+      'content-type': 'application/json',
+      'expires': '0',
+      'pragma': 'no-cache'
+    })
+  })
+
   const handlersToTest = Object.entries(defaults.handlers).map(([ext, handler]) => ({ ext, handler }))
   handlersToTest.push({ ext: '.unknown', handler: 'default ' })
 

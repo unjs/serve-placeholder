@@ -44,6 +44,13 @@ module.exports = function createServePlaceholder (_options) {
       res.setHeader('Content-Type', mime)
     }
 
+    // Prevent caching
+    if (options.noCache) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1
+      res.setHeader('Pragma', 'no-cache') // HTTP 1.0
+      res.setHeader('Expires', '0') // Proxies
+    }
+
     // Try to find placeholder based on handler
     const placeholder = options.placeholders[handler]
 
