@@ -91,7 +91,7 @@ A mapping from handler to placeholder. Values can be `String` or `Buffer`. You c
 
 A mapping from handler to the mime type. Mime type will be set as `Content-Type` header. You can disable sending any of the mimes by setting the value to `false`.
 
-# `noCache`
+### `noCache`
 
 - Default: `true`
 
