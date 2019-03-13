@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.1](https://github.com/nuxt/serve-placeholder/compare/v1.2.0...v1.2.1) (2019-03-13)
+
+
+### Bug Fixes
+
+* don't check ext on query params (fixes [#17](https://github.com/nuxt/serve-placeholder/issues/17)) ([9f0a73e](https://github.com/nuxt/serve-placeholder/commit/9f0a73e))
+
+
+
 # [1.2.0](https://github.com/nuxt/serve-placeholder/compare/v1.1.1...v1.2.0) (2019-03-07)
 
 
