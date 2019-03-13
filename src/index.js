@@ -9,7 +9,7 @@ module.exports = function createServePlaceholder (_options) {
 
   return function servePlaceholderMiddleware (req, res, next) {
     // Get url from req object
-    const { url } = req
+    const url = req.url.split('?')[0]
 
     // Get ext of requst url
     const ext = path.extname(url)
