@@ -31,6 +31,11 @@ describe('skipUnknown', () => {
     expect(response.data).toBe('Works!')
   })
 
+  it('/foo?bar.map', async () => {
+    const response = await axios.get('/foo?bar.map')
+    expect(response.data).toBe('Unknown!')
+  })
+
   it('Headers', async () => {
     const response = await axios.get('/404.json').catch(e => e.response)
     expect(response.headers).toMatchObject({
