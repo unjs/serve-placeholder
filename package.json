@@ -19,7 +19,7 @@
     "src"
   ],
   "dependencies": {
-    "defu": "^0.0.4"
+    "defu": "^1.0.0"
   },
   "devDependencies": {
     "axios": "^0.18.0",
