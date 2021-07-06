@@ -8,6 +8,10 @@ module.exports = function createServePlaceholder (_options) {
   const options = defu(_options, defaults)
 
   return function servePlaceholderMiddleware (req, res, next) {
+    // If response already sent, skip
+    if (res.writableEnded) {
+      return
+    }
     // Get url from req object
     const url = req.url.split('?')[0]
 
