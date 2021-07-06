@@ -9,7 +9,7 @@ module.exports = function createServePlaceholder (_options) {
 
   return function servePlaceholderMiddleware (req, res, next) {
     // If response already sent, skip
-    if (res.headersSent) {
+    if (res.writableEnded) {
       return
     }
     // Get url from req object
