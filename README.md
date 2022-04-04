@@ -46,10 +46,21 @@ import { servePlaceholder } from 'serve-placeholder'
 const { servePlaceholder  } = require('serve-placeholder')
 ```
 
-Create and add server middleware:
+Create and add server middleware between serve-static and router middleware:
 
-```js
-app.use(placeholder())
+```diff
+app.use('/assets', serveStatic(..))
+++ app.use('/assets', servePlaceholder())
+app.use('/', router)
+```
+
+Additionally, we can have a default placeholder for arbitrary routes which handles known extensions **assuming other routes have no extension**:
+
+```diff
+app.use('/assets', serveStatic(..))
+app.use('/assets', servePlaceholder())
+++ app.use('/', placeholder({ skipUnkown: true }))
+app.use('/', router)
 ```
 
 ## Options
