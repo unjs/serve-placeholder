@@ -1,5 +1,7 @@
 # ♡ serve-placeholder
 
+> Smart placeholder for missing assets
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Github Actions][github-actions-src]][github-actions-href]
@@ -7,18 +9,17 @@
 
 ## Why?
 
-**💵 Rendering errors is costly**
+**💵 Rendering Errors is costly**
 
-- Serving each 404 error for assets means a new SSR request that adds extra loads to the server and increases crashing chances.
+Serving each 404 page for assets adds extra load to the server and increases crashing chances. This is crucial for setups with server-side-rendering and removes additional SSR loads when assets like `robots.txt` or `favicon.ico` don't exist.
 
-**👌 Graceful Responses**
+**👌 Meaningful Responses**
 
-- Sometimes, we can send better responses alongside with 404 code instead of nothing. For example, for images, we send a fallback transparent 1x1 image.
+We can always send a better 404 response than an HTML page by knowing file extensions. For example, we send a fallback transparent 1x1 image for image extensions.
 
 **🔍 SEO Friendly**
 
-- Don't allow indexing invalid URLs with ugly html pages.
-- Remove extra SSR loads when assets like `robots.txt` or `favicon.ico` doesn't exist.
+Instead of indexing invalid URLs with HTML pages, we properly send 404 and the right content type.
 
 ## Usage
 
@@ -48,13 +49,7 @@ const { servePlaceholder  } = require('serve-placeholder')
 Create and add server middleware:
 
 ```js
-// [regular middleware such as serve-static]
-
-// Response with appreciate placeholders
 app.use(placeholder())
-//app.use(placeholder({ /* options */ }))
-
-// [global error handler]
 ```
 
 ## Options
@@ -65,7 +60,7 @@ A mapping from file extensions to the handler. Extensions should start with *dot
 
 You can disable any of the handlers by setting the value to `null`
 
-If the value of a handler is set to `false`, middleware will be ignored for that extension.
+If the value of a handler is set to `false`, the middleware will be ignored for that extension.
 
 ### `statusCode`
 
