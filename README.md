@@ -1,21 +1,15 @@
 # ♡ serve-placeholder
 
-> Connect/Express middleware to respond with better placeholders based on request instead of 404 page
-
-[![Standard JS][standard-src]][standard-href]
-[![david dm][david-src]][david-href]
-[![codecov][codecov-src]][codecov-href]
-[![circleci][circleci-src]][circleci-href]
-
-[![npm version][npm-v-src]][npm-v-href]
-[![npm downloads][npm-dt-src]][npm-dt-href]
-[![package phobia][packagephobia-src]][packagephobia-href]
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Github Actions][github-actions-src]][github-actions-href]
+[![Codecov][codecov-src]][codecov-href]
 
 ## Why?
 
-**💵 Rendering 404 errors is costly**
+**💵 Rendering errors is costly**
 
-- Each 404 error for assets means a new SSR request that adds extra loads to the server and increases crash chances.
+- Serving each 404 error for assets means a new SSR request that adds extra loads to the server and increases crashing chances.
 
 **👌 Graceful Responses**
 
@@ -30,22 +24,30 @@
 
 Install package:
 
-```bash
+```sh
+# npm
 npm install serve-placeholder
+
+# yarn
+yarn install serve-placeholder
+
+# pnpm
+pnpm install serve-placeholder
 ```
 
-OR
-
-```bash
-yarn add serve-placeholder
-```
-
-Import and use middleware:
+Import:
 
 ```js
-const placeholder = require('serve-placeholder')
-// import placeholder from 'serve-placeholder'
+// ESM
+import { servePlaceholder } from 'serve-placeholder'
 
+// CommonJS
+const { servePlaceholder  } = require('serve-placeholder')
+```
+
+Create and add server middleware:
+
+```js
 // [regular middleware such as serve-static]
 
 // Response with appreciate placeholders
@@ -122,28 +124,28 @@ Handler    | Extensions             | Mime type                |  Placeholder
 `plain`    | `.txt`, `.text`, `.md` | `text/plain`             | [empty]
 `image`    | `.png`, `.jpg`, `.jpeg`, `.gif`, `.svg`, `.webp`, `.bmp`, `.ico` | `image/gif` | [transparent 1x1 image]
 
+## 💻 Development
+
+- Clone this repository
+- Enable [Corepack](https://github.com/nodejs/corepack) using `corepack enable` (use `npm i -g corepack` for Node.js < 16.10)
+- Install dependencies using `pnpm install`
+- Run interactive tests using `pnpm dev`
+
 ## License
 
-MIT. Made with 💖  by [Nuxt.js](https://nuxtjs.org) team!
+Made with 💛
 
-<!-- Refs -->
-[standard-src]: https://flat.badgen.net/badge/code%20style/standard/green
-[standard-href]: https://standardjs.com
+Published under [MIT License](./LICENSE).
 
-[npm-v-src]: https://flat.badgen.net/npm/v/serve-placeholder/latest
-[npm-v-href]: https://npmjs.com/package/serve-placeholder
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/serve-placeholder?style=flat-square
+[npm-version-href]: https://npmjs.com/package/serve-placeholder
 
-[npm-dt-src]: https://flat.badgen.net/npm/dt/serve-placeholder
-[npm-dt-href]: https://npmjs.com/package/serve-placeholder
+[npm-downloads-src]: https://img.shields.io/npm/dm/serve-placeholder?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/serve-placeholder
 
-[packagephobia-src]: https://flat.badgen.net/packagephobia/install/serve-placeholder
-[packagephobia-href]: https://packagephobia.now.sh/result?p=serve-placeholder
+[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/serve-placeholder/ci/main?style=flat-square
+[github-actions-href]: https://github.com/unjs/serve-placeholder/actions?query=workflow%3Aci
 
-[david-src]: https://flat.badgen.net/david/dep/nuxt/serve-placeholder
-[david-href]: https://david-dm.org/nuxt/serve-placeholder
-
-[codecov-src]: https://flat.badgen.net/codecov/c/github/nuxt/serve-placeholder/master
-[codecov-href]: https://codecov.io/gh/nuxt/serve-placeholder
-
-[circleci-src]: https://flat.badgen.net/circleci/github/nuxt/serve-placeholder/master
-[circleci-href]: https://circleci.com/gh/nuxt/serve-placeholder
+[codecov-src]: https://img.shields.io/codecov/c/gh/unjs/serve-placeholder/main?style=flat-square
+[codecov-href]: https://codecov.io/gh/unjs/serve-placeholder

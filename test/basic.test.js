@@ -1,61 +1,110 @@
-const connect = require('connect')
-const Axios = require('axios')
-const placeholder = require('..')
-const defaults = require('../src/defaults')
+import { afterAll, beforeAll, describe, it, expect } from 'vitest'
+import { createApp } from 'h3'
+import { listen } from 'listhen'
+import { fetch } from 'ohmyfetch'
+import { servePlaceholder } from '../src'
+import { defaultOptions } from '../src/defaults'
 
 describe('basic', () => {
-  let app
-  let server
-  let axios
+  let app, listener, _fetch
 
-  it('init', () => {
-    app = connect()
+  beforeAll(async () => {
+    app = createApp()
+    app.use('/test', () => 'Works!')
+    app.use(servePlaceholder({}))
+    listener = await listen(app, { port: 0 })
+    _fetch = url => fetch(listener.url + url)
+  })
 
-    app.use('/test', (req, res) => { res.end('Works!') })
-    app.use(placeholder({}))
-
-    server = app.listen(8080)
-    axios = Axios.create({ baseURL: 'http://localhost:8080' })
+  afterAll(async () => {
+    await listener.close()
   })
 
   it('/test', async () => {
-    const response = await axios.get('/test')
-    expect(response.data).toBe('Works!')
+    const res = await _fetch('test')
+    expect(await res.text()).toBe('Works!')
   })
 
   it('Headers', async () => {
-    const response = await axios.get('/404.json').catch(e => e.response)
-    expect(response.headers).toMatchObject({
+    const res = await _fetch(listener.url + '404.json')
+    expect(Object.fromEntries(res.headers.entries())).toMatchObject({
       'cache-control': 'no-cache, no-store, must-revalidate',
-      'connection': 'close',
+      connection: 'close',
       'content-length': '2',
       'content-type': 'application/json',
-      'expires': '0',
-      'pragma': 'no-cache'
+      expires: '0',
+      pragma: 'no-cache'
     })
   })
-
-  const handlersToTest = Object.entries(defaults.handlers).map(([ext, handler]) => ({ ext, handler }))
-  handlersToTest.push({ ext: '.unknown', handler: 'default ' })
 
   // Test all handlers
-  handlersToTest.map(({ ext, handler }) => {
+  const handlersToTest = Object.entries(defaultOptions.handlers).map(([ext, handler]) => ({ ext, handler }))
+  handlersToTest.push({ ext: '.unknown', handler: 'default ' })
+  for (const { ext, handler } of handlersToTest) {
     it('Handler for ' + ext, async () => {
-      const response = await axios.get(`/assets/foo${ext}`, {
-        transformResponse: req => req
-      }).catch(e => e.response)
-
-      const placeholder = defaults.placeholders[handler]
-
+      const res = await _fetch(listener.url + `assets/foo${ext}`)
+      const placeholder = defaultOptions.placeholders[handler]
       if (placeholder instanceof Buffer) {
-        expect(response.data.data).toBe(defaults.placeholders[handler].data)
+        expect(await res.buffer().then(r => r.data)).toMatchObject(defaultOptions.placeholders[handler].data)
       } else {
-        expect(response.data).toBe(defaults.placeholders[handler] || '')
+        expect(await res.text()).toMatchObject(defaultOptions.placeholders[handler] || '')
       }
     })
+  }
+})
+
+describe('skipUnknown', () => {
+  let app, listener, _fetch
+
+  beforeAll(async () => {
+    app = createApp()
+    app.use('/test', () => 'Works!')
+    app.use(servePlaceholder({
+      skipUnknown: true,
+      noCache: false,
+      handlers: {
+        '.skipme': false
+      }
+    }))
+    app.use('/', () => 'Unknown!')
+    listener = await listen(app, { port: 0 })
+    _fetch = url => fetch(listener.url + url)
   })
 
-  it('close', () => {
-    return new Promise(resolve => server.close(resolve))
+  afterAll(async () => {
+    await listener.close()
+  })
+
+  it('/test', async () => {
+    const res = await _fetch('test')
+    expect(await res.text()).toBe('Works!')
+  })
+
+  it.todo('/foo?bar.map', async () => {
+    const res = await _fetch('/foo?bar.map')
+    expect(await res.text()).toBe('Unknown!')
+  })
+
+  it('Headers', async () => {
+    const res = await _fetch('/404.json')
+    const resHeaders = Object.fromEntries(res.headers.entries())
+    expect(resHeaders).toMatchObject({
+      connection: 'close',
+      'content-length': '2',
+      'content-type': 'application/json'
+    })
+    for (const header of ['cache-control', 'expires', 'pragma']) {
+      expect(resHeaders[header]).toBeUndefined()
+    }
+  })
+
+  it.todo('.skipme', async () => {
+    const res = await _fetch('/assets/foo.skipme')
+    expect(await res.text()).toBe('Unknown!')
+  })
+
+  it('unknown', async () => {
+    const res = await _fetch('/assets/foo.unknown')
+    expect(await res.text()).toBe('Unknown!')
   })
 })

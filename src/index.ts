@@ -1,11 +1,13 @@
-const path = require('path')
-const defu = require('defu')
+import path from 'path'
+import type { IncomingMessage, ServerResponse } from 'http'
+import defu from 'defu'
+import { defaultOptions } from './defaults'
 
-const defaults = require('./defaults')
+export type ServerMiddleware = (req: IncomingMessage, res: ServerResponse, next: () => void) => void
 
-module.exports = function createServePlaceholder (_options) {
+export function servePlaceholder (_options): ServerMiddleware {
   // Assign default options
-  const options = defu(_options, defaults)
+  const options = defu(_options, defaultOptions)
 
   return function servePlaceholderMiddleware (req, res, next) {
     // If response already sent, skip

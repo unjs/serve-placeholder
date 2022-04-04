@@ -1,6 +1,6 @@
 const EMPTY_GIF = Buffer.from('R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'base64')
 
-module.exports = {
+export const defaultOptions = {
   statusCode: 404,
 
   skipUnknown: false,

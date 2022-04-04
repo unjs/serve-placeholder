@@ -1,38 +1,45 @@
 {
   "name": "serve-placeholder",
-  "version": "1.2.4",
-  "main": "src/index.js",
-  "license": "MIT",
-  "description": "Connect/Express middleware to respond with better placeholders based on request instead of 404 page",
+  "version": "0.0.0",
+  "description": "",
   "repository": "unjs/serve-placeholder",
-  "contributes": [
-    "Pooya Parsa <pooya@pi0.ir>"
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
   ],
   "scripts": {
-    "lint": "eslint src",
-    "test": "npm run lint && npm run jest",
-    "jest": "jest",
-    "release": "standard-version && git push --follow-tags && npm publish",
-    "prepare": "npm run test"
+    "build": "unbuild",
+    "dev": "vitest dev",
+    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
+    "prepack": "unbuild",
+    "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
+    "test": "pnpm lint && vitest run"
   },
-  "files": [
-    "src"
-  ],
   "dependencies": {
-    "defu": "^5.0.0"
+    "defu": "^6.0.0"
   },
   "devDependencies": {
-    "axios": "latest",
-    "codecov": "latest",
-    "connect": "latest",
+    "@nuxtjs/eslint-config-typescript": "latest",
+    "c8": "^7.11.0",
     "eslint": "latest",
-    "eslint-config-standard": "latest",
-    "eslint-plugin-import": "latest",
-    "eslint-plugin-jest": "latest",
-    "eslint-plugin-node": "latest",
-    "eslint-plugin-promise": "latest",
-    "eslint-plugin-standard": "latest",
-    "jest": "latest",
-    "standard-version": "latest"
-  }
+    "h3": "^0.5.5",
+    "listhen": "^0.2.6",
+    "ohmyfetch": "^0.4.15",
+    "standard-version": "latest",
+    "typescript": "latest",
+    "unbuild": "latest",
+    "vitest": "^0.8.4"
+  },
+  "packageManager": "pnpm@6.32.2"
 }
