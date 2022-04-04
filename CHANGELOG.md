@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/unjs/serve-placeholder/compare/v1.2.4...v2.0.0) (2022-04-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* export options types and update options
+* rewrite with typescript
+
+### Features
+
+* add `X-Placeholder` ([5efaec0](https://github.com/unjs/serve-placeholder/commit/5efaec07228539b3fb6177bf6b29242e2a72e9c5))
+* export options types and update options ([fc80f7c](https://github.com/unjs/serve-placeholder/commit/fc80f7c0fe5ea5b8991e7c3b923a3c50e41e615c))
+* reduce node.js dependency ([4661cde](https://github.com/unjs/serve-placeholder/commit/4661cde6e8b1c8ef86376f94bfb0463402628e22))
+* rewrite with typescript ([cb98e94](https://github.com/unjs/serve-placeholder/commit/cb98e94859e72672dd35d608c045a250ed6d5e70))
+
 ### [1.2.4](https://github.com/unjs/serve-placeholder/compare/v1.2.3...v1.2.4) (2021-07-12)
 
 
