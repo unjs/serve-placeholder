@@ -115,6 +115,12 @@ When enabled, these headers will be sent:
 }
 ```
 
+### `addPlaceholderHeader`
+
+- Default: `true`
+
+Sets an `X-Placeholder` header with value of handler name.
+
 ## Defaults
 
 These are [default handlers](./src/defaults.js). You can override every of them using provided options.

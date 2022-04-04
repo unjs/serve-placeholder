@@ -5,6 +5,8 @@ export const defaultOptions = {
 
   noCache: true,
 
+  addPlaceholderHeader: true,
+
   handlers: {
     // css
     '.css': 'css',

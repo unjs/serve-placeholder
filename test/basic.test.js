@@ -33,7 +33,8 @@ describe('basic', () => {
       'content-length': '2',
       'content-type': 'application/json',
       expires: '0',
-      pragma: 'no-cache'
+      pragma: 'no-cache',
+      'x-placeholder': 'json'
     })
   })
 

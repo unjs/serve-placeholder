@@ -59,6 +59,11 @@ export function servePlaceholder (_options): ServerMiddleware {
       res.setHeader('Expires', '0') // Proxies
     }
 
+    // Add X- header
+    if (options.addPlaceholderHeader) {
+      res.setHeader('X-Placeholder', handler)
+    }
+
     // Try to find placeholder based on handler
     const placeholder = options.placeholders[handler]
 
