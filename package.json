@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "license": "MIT",
   "description": "Connect/Express middleware to respond with better placeholders based on request instead of 404 page",
-  "repository": "git@github.com:nuxt/serve-placeholder.git",
+  "repository": "unjs/serve-placeholder",
   "contributes": [
     "Pooya Parsa <pooya@pi0.ir>"
   ],
