@@ -5,7 +5,7 @@ export type ServerMiddleware = (req: IncomingMessage, res: ServerResponse, next:
 
 const EXT_REGEX = /\.[a-zA-Z0-9]+$/
 
-export function servePlaceholder (_options: ServePlaceholderOptions): ServerMiddleware {
+export function servePlaceholder (_options: ServePlaceholderOptions = {}): ServerMiddleware {
   // Assign default options
   const options: ServePlaceholderOptions = defu(_options, DefaultOptions)
 
