@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/unjs/serve-placeholder/compare/v2.0.0...v2.0.1) (2022-04-04)
+
+
+### Bug Fixes
+
+* options are optional ([a2fe607](https://github.com/unjs/serve-placeholder/commit/a2fe607b3cb5d9013050022085c6cbd0761b7346))
+
 ## [2.0.0](https://github.com/unjs/serve-placeholder/compare/v1.2.4...v2.0.0) (2022-04-04)
 
 

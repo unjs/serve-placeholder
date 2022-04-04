@@ -1,6 +1,6 @@
 {
   "name": "serve-placeholder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Smart placeholder for missing assets",
   "repository": "unjs/serve-placeholder",
   "license": "MIT",
