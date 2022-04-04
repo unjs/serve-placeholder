@@ -3,9 +3,9 @@ import { createApp } from 'h3'
 import { listen } from 'listhen'
 import { fetch } from 'ohmyfetch'
 import { servePlaceholder } from '../src'
-import { defaultOptions } from '../src/defaults'
+import { DefaultOptions } from '../src/defaults'
 
-describe('basic', () => {
+describe('default', () => {
   let app, listener, _fetch
 
   beforeAll(async () => {
@@ -39,17 +39,17 @@ describe('basic', () => {
   })
 
   // Test all handlers
-  const handlersToTest = Object.entries(defaultOptions.handlers).map(([ext, handler]) => ({ ext, handler }))
+  const handlersToTest = Object.entries(DefaultOptions.handlers).map(([ext, handler]) => ({ ext, handler }))
   handlersToTest.push({ ext: '.unknown', handler: 'default ' })
   for (const { ext, handler } of handlersToTest) {
     it('Handler for ' + ext, async () => {
       const res = await _fetch(listener.url + `assets/foo${ext}`)
-      expect(await res.text()).toMatchObject(defaultOptions.placeholders[handler] || '')
+      expect(await res.text()).toMatchObject(DefaultOptions.placeholders[handler] || '')
     })
   }
 })
 
-describe('skipUnknown', () => {
+describe('withOptions', () => {
   let app, listener, _fetch
 
   beforeAll(async () => {
@@ -57,7 +57,7 @@ describe('skipUnknown', () => {
     app.use('/test', () => 'Works!')
     app.use(servePlaceholder({
       skipUnknown: true,
-      noCache: false,
+      cacheHeaders: false,
       handlers: {
         '.skipme': false
       }

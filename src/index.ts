@@ -1,14 +1,13 @@
 import type { IncomingMessage, ServerResponse } from 'http'
 import defu from 'defu'
-import { defaultOptions } from './defaults'
-
+import { ServePlaceholderOptions, DefaultOptions } from './defaults'
 export type ServerMiddleware = (req: IncomingMessage, res: ServerResponse, next: () => void) => void
 
 const EXT_REGEX = /\.[a-zA-Z0-9]+$/
 
-export function servePlaceholder (_options): ServerMiddleware {
+export function servePlaceholder (_options: ServePlaceholderOptions): ServerMiddleware {
   // Assign default options
-  const options = defu(_options, defaultOptions)
+  const options: ServePlaceholderOptions = defu(_options, DefaultOptions)
 
   return function servePlaceholderMiddleware (req, res, next) {
     // If response already sent, skip
@@ -53,14 +52,14 @@ export function servePlaceholder (_options): ServerMiddleware {
     }
 
     // Prevent caching
-    if (options.noCache) {
+    if (options.cacheHeaders) {
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate') // HTTP 1.1
       res.setHeader('Pragma', 'no-cache') // HTTP 1.0
       res.setHeader('Expires', '0') // Proxies
     }
 
     // Add X- header
-    if (options.addPlaceholderHeader) {
+    if (options.placeholderHeader) {
       res.setHeader('X-Placeholder', handler)
     }
 
