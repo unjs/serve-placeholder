@@ -1,9 +1,10 @@
-import path from 'path'
 import type { IncomingMessage, ServerResponse } from 'http'
 import defu from 'defu'
 import { defaultOptions } from './defaults'
 
 export type ServerMiddleware = (req: IncomingMessage, res: ServerResponse, next: () => void) => void
+
+const EXT_REGEX = /\.[a-zA-Z0-9]+$/
 
 export function servePlaceholder (_options): ServerMiddleware {
   // Assign default options
@@ -14,11 +15,12 @@ export function servePlaceholder (_options): ServerMiddleware {
     if (res.writableEnded) {
       return
     }
+
     // Get url from req object
     const url = req.url.split('?')[0]
 
     // Get ext of requst url
-    const ext = path.extname(url)
+    const ext = (url.match(EXT_REGEX) || [])[0] || ''
 
     // Try to find a handler based on ext
     let handler = options.handlers[ext]

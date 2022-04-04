@@ -43,12 +43,7 @@ describe('basic', () => {
   for (const { ext, handler } of handlersToTest) {
     it('Handler for ' + ext, async () => {
       const res = await _fetch(listener.url + `assets/foo${ext}`)
-      const placeholder = defaultOptions.placeholders[handler]
-      if (placeholder instanceof Buffer) {
-        expect(await res.buffer().then(r => r.data)).toMatchObject(defaultOptions.placeholders[handler].data)
-      } else {
-        expect(await res.text()).toMatchObject(defaultOptions.placeholders[handler] || '')
-      }
+      expect(await res.text()).toMatchObject(defaultOptions.placeholders[handler] || '')
     })
   }
 })

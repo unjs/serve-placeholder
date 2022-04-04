@@ -1,5 +1,3 @@
-const EMPTY_GIF = Buffer.from('R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', 'base64')
-
 export const defaultOptions = {
   statusCode: 404,
 
@@ -38,7 +36,7 @@ export const defaultOptions = {
     css: '/* style not found */',
     default: undefined,
     html: '<!-- page not found -->',
-    image: EMPTY_GIF,
+    image: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
     js: '/* script not found */',
     json: '{}',
     map: '{"version": "3", "sources": [], "mappings": "" }',
