@@ -43,7 +43,7 @@ Import:
 import { servePlaceholder } from 'serve-placeholder'
 
 // CommonJS
-const { servePlaceholder  } = require('serve-placeholder')
+const { servePlaceholder } = require('serve-placeholder')
 ```
 
 Create and add server middleware between serve-static and router middleware:
