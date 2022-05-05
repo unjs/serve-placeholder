@@ -123,7 +123,7 @@ Sets an `X-Placeholder` header with value of handler name.
 
 ## Defaults
 
-These are [default handlers](./src/defaults.js). You can override every of them using provided options.
+These are [default handlers](./src/defaults.ts). You can override every of them using provided options.
 
 Handler    | Extensions             | Mime type                |  Placeholder
 -----------|------------------------|--------------------------|-------------------
