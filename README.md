@@ -59,7 +59,7 @@ Additionally, we can have a default placeholder for arbitrary routes which handl
 ```diff
 app.use('/assets', serveStatic(..))
 app.use('/assets', servePlaceholder())
-++ app.use('/', placeholder({ skipUnkown: true }))
+++ app.use('/', placeholder({ skipUnknown: true }))
 app.use('/', router)
 ```
 
