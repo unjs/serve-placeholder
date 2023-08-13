@@ -156,7 +156,7 @@ Published under [MIT License](./LICENSE).
 [npm-downloads-src]: https://img.shields.io/npm/dm/serve-placeholder?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/serve-placeholder
 
-[github-actions-src]: https://img.shields.io/github/workflow/status/unjs/serve-placeholder/ci/main?style=flat-square
+[github-actions-src]: https://img.shields.io/github/actions/workflow/status/unjs/serve-placeholder/ci.yml?style=flat-square&branch=main
 [github-actions-href]: https://github.com/unjs/serve-placeholder/actions?query=workflow%3Aci
 
 [codecov-src]: https://img.shields.io/codecov/c/gh/unjs/serve-placeholder/main?style=flat-square
