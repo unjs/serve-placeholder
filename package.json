@@ -34,7 +34,7 @@
     "c8": "^7.11.0",
     "eslint": "latest",
     "h3": "^0.7.2",
-    "listhen": "^0.2.8",
+    "listhen": "^1.7.2",
     "ohmyfetch": "^0.4.15",
     "standard-version": "latest",
     "typescript": "latest",
