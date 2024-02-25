@@ -33,7 +33,7 @@
     "@nuxtjs/eslint-config-typescript": "latest",
     "c8": "^7.11.0",
     "eslint": "latest",
-    "h3": "^0.7.2",
+    "h3": "^1.11.1",
     "listhen": "^0.2.8",
     "ohmyfetch": "^0.4.15",
     "standard-version": "latest",
