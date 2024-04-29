@@ -2,7 +2,10 @@
   "name": "serve-placeholder",
   "version": "2.0.1",
   "description": "Smart placeholder for missing assets",
-  "repository": "unjs/serve-placeholder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unjs/serve-placeholder.git"
+  },
   "license": "MIT",
   "sideEffects": false,
   "type": "module",
