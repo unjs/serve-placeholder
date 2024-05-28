@@ -14,12 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 16
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm lint
       - run: pnpm build
+      - run: |
+          pnpm dlx publint@latest --strict
+          pnpm dlx @arethetypeswrong/cli@latest
       - run: pnpm vitest --coverage
       - uses: codecov/codecov-action@v3

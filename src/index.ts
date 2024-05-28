@@ -1,6 +1,6 @@
-import type { IncomingMessage, ServerResponse } from 'http'
+import type { IncomingMessage, ServerResponse } from 'node:http'
 import defu from 'defu'
-import { ServePlaceholderOptions, DefaultOptions } from './defaults'
+import { type ServePlaceholderOptions, DefaultOptions } from './defaults'
 export type ServerMiddleware = (req: IncomingMessage, res: ServerResponse, next: () => void) => void
 
 const EXT_REGEX = /\.[a-zA-Z0-9]+$/
