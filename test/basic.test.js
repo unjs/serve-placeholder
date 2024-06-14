@@ -1,6 +1,6 @@
-import { createApp } from "h3";
+import { createApp, fromNodeMiddleware, eventHandler, toNodeListener } from "h3";
 import { listen } from "listhen";
-import { fetch } from "ohmyfetch";
+import { fetch } from "ofetch";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { servePlaceholder } from "../src";
 import { DefaultOptions } from "../src/defaults";
@@ -12,9 +12,10 @@ describe("default", () => {
 
   beforeAll(async () => {
     app = createApp();
-    app.use("/test", () => "Works!");
-    app.use(servePlaceholder({}));
-    listener = await listen(app, { port: 0 });
+    app.use("/test", eventHandler(() => "Works!"));
+    app.use(fromNodeMiddleware(servePlaceholder({})));
+    listener = await listen(toNodeListener(app), { port: 0 });
+    console.log(listener.url)
     _fetch = (url) => fetch(listener.url + url);
   });
 
@@ -31,7 +32,7 @@ describe("default", () => {
     const res = await _fetch(`${listener.url}404.json`);
     expect(Object.fromEntries(res.headers.entries())).toMatchObject({
       "cache-control": "no-cache, no-store, must-revalidate",
-      connection: "close",
+      connection: "keep-alive",
       "content-length": "2",
       "content-type": "application/json",
       expires: "0",
@@ -62,18 +63,18 @@ describe("withOptions", () => {
 
   beforeAll(async () => {
     app = createApp();
-    app.use("/test", () => "Works!");
+    app.use("/test", eventHandler(() => "Works!"));
     app.use(
-      servePlaceholder({
+      fromNodeMiddleware(servePlaceholder({
         skipUnknown: true,
         cacheHeaders: false,
         handlers: {
           ".skipme": false,
         },
-      }),
+      })),
     );
-    app.use("/", () => "Unknown!");
-    listener = await listen(app, { port: 0 });
+    app.use("/", eventHandler(() => "Unknown!"));
+    listener = await listen(toNodeListener(app), { port: 0 });
     _fetch = (url) => fetch(listener.url + url);
   });
 
@@ -95,7 +96,7 @@ describe("withOptions", () => {
     const res = await _fetch("/404.json");
     const resHeaders = Object.fromEntries(res.headers.entries());
     expect(resHeaders).toMatchObject({
-      connection: "close",
+      connection: "keep-alive",
       "content-length": "2",
       "content-type": "application/json",
     });
