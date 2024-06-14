@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v2.0.2
+
+[compare changes](https://github.com/unjs/serve-placeholder/compare/v2.0.1...v2.0.2)
+
+### 💅 Refactors
+
+- Update repo ([f516ffe](https://github.com/unjs/serve-placeholder/commit/f516ffe))
+
+### 📖 Documentation
+
+- Fix .js to .ts ([4d8aff6](https://github.com/unjs/serve-placeholder/commit/4d8aff6))
+- Fix typo ([578500a](https://github.com/unjs/serve-placeholder/commit/578500a))
+
+### 🏡 Chore
+
+- Update renovate config ([#57](https://github.com/unjs/serve-placeholder/pull/57))
+- Update badge ([#62](https://github.com/unjs/serve-placeholder/pull/62))
+- Ignore package.json from biom format ([e5a9da0](https://github.com/unjs/serve-placeholder/commit/e5a9da0))
+- Apply automated updates ([760ba22](https://github.com/unjs/serve-placeholder/commit/760ba22))
+
+### ✅ Tests
+
+- Update tests ([a69d636](https://github.com/unjs/serve-placeholder/commit/a69d636))
+
+### ❤️ Contributors
+
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+- Luke Nelson <luke@nelson.zone>
+- Nozomu Ikuta <nick.0508.nick@gmail.com>
+- Daniel Roe ([@danielroe](http://github.com/danielroe))
+- Sébastien Chopin <seb@nuxtjs.com>
+
 ### [2.0.1](https://github.com/unjs/serve-placeholder/compare/v2.0.0...v2.0.1) (2022-04-04)
 
 
