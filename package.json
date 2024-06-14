@@ -8,6 +8,7 @@
   "type": "module",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
@@ -15,31 +16,32 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "unbuild",
     "dev": "vitest dev",
-    "lint": "eslint --ext .ts,.js,.mjs,.cjs .",
-    "prepack": "unbuild",
-    "release": "pnpm test && standard-version && git push --follow-tags && pnpm publish",
-    "test": "pnpm lint && vitest run"
+    "lint": "eslint . && biome check .",
+    "lint:fix": "automd && eslint . --fix && biome check --apply .",
+    "prepack": "pnpm build",
+    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+    "test": "pnpm lint && pnpm test:types && vitest run --coverage",
+    "test:types": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
-    "defu": "^6.0.0"
+    "defu": "^6.1.4"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config-typescript": "latest",
-    "c8": "^7.11.0",
-    "eslint": "latest",
-    "h3": "^0.7.2",
-    "listhen": "^0.2.8",
-    "ohmyfetch": "^0.4.15",
-    "standard-version": "latest",
-    "typescript": "latest",
-    "unbuild": "latest",
-    "vitest": "^0.9.2"
+    "@biomejs/biome": "^1.7.2",
+    "@types/node": "^20.12.7",
+    "@vitest/coverage-v8": "^1.5.3",
+    "automd": "^0.3.7",
+    "changelogen": "^0.5.5",
+    "eslint": "^9.1.1",
+    "eslint-config-unjs": "^0.3.2",
+    "jiti": "^1.21.0",
+    "typescript": "^5.4.5",
+    "unbuild": "^2.0.0",
+    "vitest": "^1.5.3"
   },
-  "packageManager": "pnpm@6.32.4"
+  "packageManager": "pnpm@9.0.6"
 }
