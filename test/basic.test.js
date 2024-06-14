@@ -1,4 +1,9 @@
-import { createApp, fromNodeMiddleware, eventHandler, toNodeListener } from "h3";
+import {
+  createApp,
+  eventHandler,
+  fromNodeMiddleware,
+  toNodeListener,
+} from "h3";
 import { listen } from "listhen";
 import { fetch } from "ofetch";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
@@ -12,10 +17,13 @@ describe("default", () => {
 
   beforeAll(async () => {
     app = createApp();
-    app.use("/test", eventHandler(() => "Works!"));
+    app.use(
+      "/test",
+      eventHandler(() => "Works!"),
+    );
     app.use(fromNodeMiddleware(servePlaceholder({})));
     listener = await listen(toNodeListener(app), { port: 0 });
-    console.log(listener.url)
+    console.log(listener.url);
     _fetch = (url) => fetch(listener.url + url);
   });
 
@@ -63,17 +71,25 @@ describe("withOptions", () => {
 
   beforeAll(async () => {
     app = createApp();
-    app.use("/test", eventHandler(() => "Works!"));
     app.use(
-      fromNodeMiddleware(servePlaceholder({
-        skipUnknown: true,
-        cacheHeaders: false,
-        handlers: {
-          ".skipme": false,
-        },
-      })),
+      "/test",
+      eventHandler(() => "Works!"),
     );
-    app.use("/", eventHandler(() => "Unknown!"));
+    app.use(
+      fromNodeMiddleware(
+        servePlaceholder({
+          skipUnknown: true,
+          cacheHeaders: false,
+          handlers: {
+            ".skipme": false,
+          },
+        }),
+      ),
+    );
+    app.use(
+      "/",
+      eventHandler(() => "Unknown!"),
+    );
     listener = await listen(toNodeListener(app), { port: 0 });
     _fetch = (url) => fetch(listener.url + url);
   });
