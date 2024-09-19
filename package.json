@@ -33,11 +33,11 @@
     "defu": "^6.1.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
+    "@biomejs/biome": "^1.9.2",
     "@types/node": "^20.16.5",
     "@vitest/coverage-v8": "^1.6.0",
     "automd": "^0.3.8",
-    "changelogen": "^0.5.5",
+    "changelogen": "^0.5.7",
     "eslint": "^9.10.0",
     "eslint-config-unjs": "^0.3.2",
     "h3": "^1.12.0",
