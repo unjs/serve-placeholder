@@ -33,7 +33,7 @@
     "defu": "^6.1.4"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.2",
+    "@biomejs/biome": "^2.1.4",
     "@types/node": "^20.16.5",
     "@vitest/coverage-v8": "^1.6.0",
     "automd": "^0.3.8",
