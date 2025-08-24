@@ -3,7 +3,7 @@
 <!-- automd:badges color=yellow -->
 
 [![npm version](https://img.shields.io/npm/v/serve-placeholder?color=yellow)](https://npmjs.com/package/serve-placeholder)
-[![npm downloads](https://img.shields.io/npm/dm/serve-placeholder?color=yellow)](https://npmjs.com/package/serve-placeholder)
+[![npm downloads](https://img.shields.io/npm/dm/serve-placeholder?color=yellow)](https://npm.chart.dev/serve-placeholder)
 
 <!-- /automd -->
 
@@ -44,6 +44,9 @@ pnpm install serve-placeholder
 
 # bun
 bun install serve-placeholder
+
+# deno
+deno install serve-placeholder
 ```
 
 <!-- /automd -->
